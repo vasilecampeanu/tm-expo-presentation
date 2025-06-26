@@ -1,3 +1,4 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
@@ -7,18 +8,20 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native";
+import RootNavigator from "./navigation/RootNavigator";
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <View style={styles.container}>
-      <Text>count: {count}</Text>
-      <TouchableOpacity onPress={() => setCount(count + 1)}>
-        <Text>Click Me</Text>
-      </TouchableOpacity>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <SafeAreaView
+        style={{
+          flex: 1,
+        }}
+      >
+        <RootNavigator />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
