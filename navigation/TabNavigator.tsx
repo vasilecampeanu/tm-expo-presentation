@@ -2,6 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
+import BasketIcon from "../components/BasketIcon";
+import ProductsScreen from "../screens/ProductsScreen";
 
 export type TabStackParamList = {
   Home: NavigatorScreenParams<HomeStackParamList>;
@@ -13,19 +15,25 @@ const Stack = createNativeStackNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen
+        name="Home"
+        options={{ tabBarIcon: BasketIcon }}
+        component={HomeStack}
+      />
     </Tab.Navigator>
   );
 };
 
 export type HomeStackParamList = {
   HomeScreen: undefined;
+  ProductsScreen: undefined;
 };
 
 const HomeStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
     </Stack.Navigator>
   );
 };
