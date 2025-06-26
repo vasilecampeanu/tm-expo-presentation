@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import BasketIcon from "../components/BasketIcon";
 import ProductsScreen from "../screens/ProductsScreen";
+import HomeIcon from "../components/HomeIcon";
 
 export type TabStackParamList = {
   Home: NavigatorScreenParams<HomeStackParamList>;
@@ -17,7 +18,7 @@ const TabNavigator = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        options={{ tabBarIcon: BasketIcon }}
+        options={{ tabBarIcon: HomeIcon }}
         component={HomeStack}
       />
     </Tab.Navigator>
@@ -26,7 +27,7 @@ const TabNavigator = () => {
 
 export type HomeStackParamList = {
   HomeScreen: undefined;
-  ProductsScreen: undefined;
+  ProductsScreen: { query: string };
 };
 
 const HomeStack = () => {

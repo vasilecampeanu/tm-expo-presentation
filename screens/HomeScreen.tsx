@@ -27,7 +27,7 @@ const HomeScreen = () => {
       <TouchableOpacity
         key={item}
         style={styles.item}
-        onPress={() => navigation.navigate("ProductsScreen")}
+        onPress={() => navigation.navigate("ProductsScreen", { query: item })}
       >
         <View style={styles.innerItem}>
           <Text style={styles.text}>{item}</Text>
